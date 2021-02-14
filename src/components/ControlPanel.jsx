@@ -24,7 +24,7 @@ export const ControlPanel = ({ credits, bet, setBet, finalPayout, setFinalPayout
                     >
                         Add 1 Credit to your bet
                     </button>
-                    <button onClick={handleMaximizeBet}>Maximize bet</button>
+                    <button onClick={handleMaximizeBet}>Maximize bet and Spin</button>
                     <button onClick={handleSpin} disabled={bet === 0}>
                         Spin
                     </button>
