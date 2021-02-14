@@ -1,0 +1,81 @@
+fieldset {
+    border: none;
+}
+
+button {
+    margin-bottom: 1rem;
+}
+
+.d-flex {
+    display: flex;
+
+}
+.justify-center {
+    justify-content: center;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+.flex-column {
+    flex-direction: column;
+}
+
+.color-green {
+    color: green;
+}
+
+.image {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-image: url("../../SlotMachineSprite.png");
+
+    background-position: 0 -500px;
+
+    &-cherry {
+        background-position: 0 0;
+    }
+    &-1bar {
+        background-position: 0 -100px;
+    }
+    &-2bar {
+        background-position: 0 -200px;
+    }
+    &-3bar {
+        background-position: 0 -300px;
+    }
+    &-7 {
+        background-position: 0 -400px;
+    }
+    &-blank {
+        background-position: 0 -500px;
+    }
+    &-loading {
+        background-image: url("../../loading.gif");
+        background-position: -249px -108px;
+    }
+}
+
+
+.machine {
+    display: flex;
+    padding: 20px;
+    background-color: #fff;
+    flex-direction: row;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.spins {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    width: 400px;
+}
+
+.welcome {
+    width: 100%; 
+    height: 100px;
+    text-align: center;
+    padding-top: 50px;
+}
