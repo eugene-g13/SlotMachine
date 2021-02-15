@@ -2,10 +2,7 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-//const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 //const postcssNormalize = require("postcss-normalize");
-//const webpackDevClientEntry = require.resolve("react-dev-utils/webpackHotDevClient");
-//const reactRefreshOverlayEntry = require.resolve("react-dev-utils/refreshOverlayInterop");
 
 module.exports = {
     mode: "development",
@@ -48,8 +45,6 @@ module.exports = {
         //       sockIntegration: false,
         //     },
         //   }),
-
-        //new ReactRefreshWebpackPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
     ],
@@ -65,6 +60,7 @@ module.exports = {
                     "css-loader",
                     // {
                     //     loader: require.resolve('postcss-loader'),
+                    //     // loader: "postcss-loader",
                     //     options: {
                     //         ident: 'postcss',
                     //         postcssOptions: {
@@ -77,19 +73,6 @@ module.exports = {
                     //         },
                     //     },
                     // },
-
-                    // {
-                    //     loader: "postcss-loader",
-                    //     options: {
-                    //         postcssOptions: {
-                    //             plugins: [[
-                    //                 "postcss-preset-env", 
-                    //                 //"autoprefixer", 
-                    //                 //postcssNormalize()
-                    //             ]],
-                    //         },
-                    //     },
-                    // },
                     "sass-loader",
                 ],
             },
@@ -97,16 +80,16 @@ module.exports = {
                 test: /\.(jpg|jpeg|png|svg|gif)$/,
                 use: ["file-loader"],
             },
-            // {
-            //     test: /\.m?js$/,
-            //     exclude: /node_modules/,
-            //     use: {
-            //         loader: "babel-loader",
-            //         options: {
-            //             presets: ["@babel/preset-env"],
-            //         },
-            //     },
-            // },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-env"],
+                    },
+                },
+            },
 
             // {
             //     test: /\.m?jsx$/,
