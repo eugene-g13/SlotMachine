@@ -12,10 +12,7 @@ module.exports = {
     entry: [
         "@babel/polyfill",
         "./src/index.jsx",
-        //// listen to code updates emitted by hot middleware:
-        // 'webpack-hot-middleware/client?path=${HOT_SERVER_URL}/__webpack_hmr'
     ],
-    //devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname, "dist"),
         //path: path.join(__dirname, "dist"),
@@ -23,7 +20,7 @@ module.exports = {
         //publicPath: "/dist",
         publicPath: "/",
     },
-    target: "web",
+    target: "web", // ! Live reloading bug fix. (for Webpack 5) 
     devtool: 'inline-source-map',
     devServer: {
         port: 3000,
@@ -85,7 +82,11 @@ module.exports = {
                     //     loader: "postcss-loader",
                     //     options: {
                     //         postcssOptions: {
-                    //             plugins: [["postcss-preset-env", "autoprefixer", postcssNormalize()]],
+                    //             plugins: [[
+                    //                 "postcss-preset-env", 
+                    //                 //"autoprefixer", 
+                    //                 //postcssNormalize()
+                    //             ]],
                     //         },
                     //     },
                     // },
@@ -130,14 +131,11 @@ module.exports = {
                         [
                             "@babel/preset-env",
                             {
+                                //     targets: { browsers: ["last 2 chrome versions"] },
                                 useBuiltIns: "usage",
                                 corejs: { version: 3, proposals: true },
                                 debug: true,
                             },
-                            // {
-                            //     targets: { browsers: ["last 2 chrome versions"] },
-                            //     debug: true,
-                            // },
                         ],
                         "@babel/preset-react",
                     ],
