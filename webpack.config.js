@@ -12,16 +12,16 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, "dist"),
-        //path: path.join(__dirname, "dist"),
         filename: "[name].[fullhash].js",
-        //publicPath: "/dist",
-        publicPath: "/",
+        //publicPath: "/", // now in Webpack 5 determined automatically if possible
     },
     target: "web", // ! Live reloading bug fix. (for Webpack 5) 
-    devtool: 'inline-source-map',
+    // target: ["web", "es2020"], not working
+    devtool: 'eval', // compilation x2 faster
+    cache: { type: "filesystem"},
     devServer: {
         port: 3000,
-        //open: "Google Chrome",
+        open: 'Google Chrome',
         contentBase: path.resolve(__dirname, "dist"),
         //contentBase: path.resolve(__dirname, "dist"),
         contentBase: "./dist",
