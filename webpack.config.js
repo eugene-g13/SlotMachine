@@ -31,6 +31,7 @@ module.exports = {
     },
     resolve: {
         extensions: [".js", ".jsx"],
+        fallback: { "path": false }
     },
     plugins: [
         new HTMLWebpackPlugin({ template: "./src/index.html" }),
